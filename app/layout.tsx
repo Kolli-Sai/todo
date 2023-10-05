@@ -5,6 +5,7 @@ import Navbar from "@/components/navbar";
 import { Divider } from "@nextui-org/divider";
 import Layout from "@/components/layout";
 import { Toaster } from "sonner";
+import Footer from "@/components/footer";
 type Props = {
   children: React.ReactNode;
 };
@@ -18,6 +19,7 @@ const RootLayout = (props: Props) => {
           <Navbar />
           <Divider className=" mb-5" />
           <Layout>{props.children}</Layout>
+          {/* <Footer /> */}
         </Providers>
       </body>
     </html>
