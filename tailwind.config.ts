@@ -11,7 +11,22 @@ const config: Config = {
     extend: {},
   },
   darkMode: "class",
-  plugins: [nextui()],
+  plugins: [
+    nextui({
+      themes: {
+        light: {
+          colors: {
+            primary: "#BD3F99",
+          },
+        },
+        dark: {
+          colors: {
+            primary: "#BD3F99",
+          },
+        },
+      },
+    }),
+  ],
 };
 
 export default config;
