@@ -70,8 +70,9 @@ const TodoDetailPageForm = (props: Props) => {
   /**handle Delete */
   const handleDelete = async () => {
     console.log("delete");
-    setDeleteLoading(true);
     try {
+      // throw new Error("delete");
+      setDeleteLoading(true);
       const { data, error } = await deleteTodo(props.todo.id);
       setDeleteLoading(false);
       if (error) {
@@ -80,10 +81,11 @@ const TodoDetailPageForm = (props: Props) => {
         toast.success("Deleted Successfully");
         router.push("/todos");
       }
-    } catch (error) {
+    } catch (error: any) {
       console.log({
         deleteTodoError: error,
       });
+      throw new Error(error.message);
     }
   };
   return (

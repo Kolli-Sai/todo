@@ -7,13 +7,15 @@ import React from "react";
 import NextImage from "next/image";
 import GetStartedButton from "@/components/getstarted-button";
 import { getAuthSession } from "@/lib/auth-options";
-import { redirect } from 'next/navigation'
+import { redirect } from "next/navigation";
 type Props = {};
 
 const HomePage = async (props: Props) => {
+  // throw new Error("This is an error");
   const { session } = await getAuthSession();
   if (session) {
-    return redirect('/todos')
+    // throw new Error("You are already logged in");
+    return redirect("/todos");
   }
   return (
     <>
