@@ -1,27 +1,49 @@
-import { ImageResponse, ImageResponseOptions } from "next/server";
+import { ImageResponse } from "next/server";
 import NextImage from "next/image";
+// Route segment config
 export const runtime = "edge";
+
+// Image metadata
 export const alt = "Home Page";
-export const sizes = {
+export const size = {
   width: 1200,
   height: 630,
 };
+
 export const contentType = "image/png";
 
-async function Image() {
+// Image generation
+export default async function Image() {
   return new ImageResponse(
     (
-      <div tw=" w-full h-full flex flex-col justify-center items-center gap-4">
-        <div tw=" flex justify-center gap-4">
-          <NextImage src={"/favicon-32x32.png"} alt="logo" />
-          <h1 tw=" text-4xl font-bold">Home Page</h1>
-        </div>
+      // ImageResponse JSX element
+      <div
+        style={{
+          height: "100%",
+          width: "100%",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          backgroundColor: "#fff",
+          fontSize: 32,
+          fontWeight: 600,
+        }}
+      >
+        <NextImage
+          src={"/favicon-32x32.png"}
+          alt="logo"
+          width={32}
+          height={32}
+        />
+        <div style={{ marginTop: 40 }}>Home Page N</div>
       </div>
     ),
+    // ImageResponse options
     {
-      ...sizes,
+      // For convenience, we can re-use the exported opengraph-image
+      // size config to also set the ImageResponse's width and height.
+      ...size,
     }
   );
 }
-
-export default Image;
