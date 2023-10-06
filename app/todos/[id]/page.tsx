@@ -26,7 +26,7 @@ const TodoPage = async (props: Props) => {
   }
   return (
     <>
-      <TypographyH1 className=" mb-8">Todo Page</TypographyH1>
+      <TypographyH1 className=" mb-8">Todo Detail Page</TypographyH1>
       {data && (
         <TodoDetailPageForm
           todo={{

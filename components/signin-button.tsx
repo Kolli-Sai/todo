@@ -4,7 +4,7 @@ import { Button } from "@nextui-org/button";
 import { signIn } from "next-auth/react";
 import { useSearchParams } from "next/navigation";
 import { Github } from "lucide-react";
-import { toast } from 'sonner'
+import { toast } from "sonner";
 type Props = {};
 
 const SigninButton = (props: Props) => {
@@ -14,6 +14,7 @@ const SigninButton = (props: Props) => {
   const handleLogin = async () => {
     setIsLoading(true);
     try {
+      // throw new Error("Error Occured while logging in");
       const login = await signIn("github", { callbackUrl });
       setIsLoading(false);
       if (login?.error) {
@@ -21,9 +22,11 @@ const SigninButton = (props: Props) => {
       } else {
         console.log({ loginSuccess: login });
       }
-    } catch (error:any) {
+    } catch (error: any) {
       console.log({ loginFailed: error });
-      toast.error(error.message)
+      // return error.message;
+      toast.error(error.message);
+      // throw new Error(error.message);
     }
   };
   return (

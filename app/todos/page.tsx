@@ -30,6 +30,11 @@ const TodosPage = async (props: Props) => {
       <div className=" flex justify-end ">
         <AddTodoModal />
       </div>
+      {data?.length === 0 && (
+        <div className=" flex justify-center items-center h-auto py-24 ">
+          <TypographyH1 className=" text-center ">No Todos Found</TypographyH1>
+        </div>
+      )}
       <div className=" grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 md:gap-6 lg:grid-cols-4 lg:gap-8 py-12 ">
         {data?.map((todo) => {
           return (
