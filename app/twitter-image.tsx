@@ -30,12 +30,7 @@ export default async function Image() {
           fontWeight: 600,
         }}
       >
-        <NextImage
-          src={"/favicon-32x32.png"}
-          alt="logo"
-          width={32}
-          height={32}
-        />
+        <div tw=" text-2xl font-bold text-pink-600 mb-40">Todo App</div>
         <div style={{ marginTop: 40 }}>Home Page N</div>
       </div>
     ),
