@@ -30,8 +30,8 @@ export default async function Image() {
           fontWeight: 600,
         }}
       >
-        <div tw=" text-2xl font-bold text-pink-600 mb-40">Todo App</div>
-        <div style={{ marginTop: 40 }}>Home Page N</div>
+        <div tw=" text-2xl font-bold text-pink-600 mb-10">Todo App</div>
+        <div style={{ marginTop: 40 }}>Home Page </div>
       </div>
     ),
     // ImageResponse options

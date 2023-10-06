@@ -4,7 +4,7 @@ import NextImage from "next/image";
 export const runtime = "edge";
 
 // Image metadata
-export const alt = "Home Page";
+export const alt = "Todos Page";
 export const size = {
   width: 1200,
   height: 630,
@@ -31,7 +31,7 @@ export default async function Image() {
         }}
       >
         <div tw=" text-2xl font-bold text-pink-600 mb-10">Todo App</div>
-        <div style={{ marginTop: 40 }}>Home Page </div>
+        <div style={{ marginTop: 40 }}>Todos Page </div>
       </div>
     ),
     // ImageResponse options

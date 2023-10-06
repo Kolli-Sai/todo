@@ -8,12 +8,20 @@ import {
 import { getAuthSession } from "@/lib/auth-options";
 import { getTodos } from "@/services";
 import { Card, CardHeader, CardBody, CardFooter } from "@nextui-org/card";
+import { Metadata } from "next";
 import NextLink from "next/link";
 
 import { redirect } from "next/navigation";
 import React from "react";
 
 type Props = {};
+
+export const metadata: Metadata = {
+  title: "All Todos",
+  openGraph: {
+    url: "/todos",
+  },
+};
 
 const TodosPage = async (props: Props) => {
   const { session } = await getAuthSession();
