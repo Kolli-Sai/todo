@@ -1,6 +1,6 @@
 import { baseUrl } from "@/lib/base-url";
 import { type MetadataRoute } from "next";
-export function robots(): MetadataRoute.Robots {
+export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
       userAgent: "*",
