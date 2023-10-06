@@ -6,6 +6,7 @@ import {
 } from "@/components/ui/typography";
 import { getAuthSession } from "@/lib/auth-options";
 import { getTodo } from "@/services";
+import { Metadata } from "next";
 import { redirect } from "next/navigation";
 import React from "react";
 
@@ -14,6 +15,26 @@ type Props = {
     id: string;
   };
 };
+
+export async function generateMetadata(props: Props) {
+  const { data, error } = await getTodo(props.params.id);
+  if (error) {
+    return {
+      title: "Not Found",
+      description: "Todo not found",
+      openGraph: {
+        url: `/todos/${props.params.id}`,
+      },
+    };
+  }
+  return {
+    title: data?.title,
+    description: data?.description,
+    openGraph: {
+      url: `/todos/${data?.id}`,
+    },
+  };
+}
 
 const TodoPage = async (props: Props) => {
   const { session } = await getAuthSession();

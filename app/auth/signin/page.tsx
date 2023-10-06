@@ -4,6 +4,7 @@ import NextImage from "next/image";
 import SigninButton from "@/components/signin-button";
 import { getAuthSession } from "@/lib/auth-options";
 import { redirect } from "next/navigation";
+import { Metadata } from "next";
 type Props = {};
 
 const SigninPage = async (props: Props) => {
@@ -44,3 +45,10 @@ const SigninPage = async (props: Props) => {
 };
 
 export default SigninPage;
+
+export const metadata: Metadata = {
+  title: "Sign in",
+  openGraph: {
+    url: "/auth/signin",
+  }
+}
