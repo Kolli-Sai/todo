@@ -12,6 +12,7 @@ import NavbarSigninButton from "./navbar-signin-button";
 import NavbarAvatarDropdown from "./navbra-avatar-dropdown";
 import { getAuthSession } from "@/lib/auth-options";
 import { ThemeSwitcher } from "./theme-switcher";
+import NavbarMenu from "./navbar-menu";
 type Props = {};
 
 const Navbar = async (props: Props) => {
@@ -20,14 +21,17 @@ const Navbar = async (props: Props) => {
     <Layout>
       <nav className=" flex justify-between items-center py-5">
         <div className=" flex items-center">
-          <NextLink href="/">
+          <NextLink href="/" className="hidden sm:block">
             <TypographyH3 className=" underline-offset-8 underline decoration-primary decoration-4">
               Todo App
             </TypographyH3>
           </NextLink>
+          <div className=" inline-block sm:hidden">
+            <NavbarMenu />
+          </div>
         </div>
         <div className=" flex  items-center gap-4">
-          <NextLink href={"/todos"}>
+          <NextLink href={"/todos"} className=" hidden sm:block">
             <TypographyLead className=" text-primary hover:underline hover:underline-offset-2">
               Todos
             </TypographyLead>
