@@ -8,9 +8,25 @@ import { Toaster } from "sonner";
 import Footer from "@/components/footer";
 import { Metadata } from "next";
 import { baseUrl } from "@/lib/base-url";
+import { Poppins, Inter, Montserrat } from "next/font/google";
 type Props = {
   children: React.ReactNode;
 };
+
+const poppins = Poppins({
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  style: ["normal", "italic"],
+  subsets: ["latin"],
+
+  variable: "--font-poppins",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+});
+const montserrat = Montserrat({
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(`${baseUrl}`),
@@ -66,8 +82,12 @@ export const metadata: Metadata = {
 
 const RootLayout = (props: Props) => {
   return (
-    <html lang="en" className="dark">
-      <body>
+    <html lang="en">
+      <body
+        className={poppins.className}
+        // className={montserrat.className}
+        // className={inter.className}
+      >
         <Providers>
           <Toaster position="top-center" />
           <Navbar />

@@ -13,6 +13,7 @@ import NextLink from "next/link";
 
 import { redirect } from "next/navigation";
 import React from "react";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 type Props = {};
 
@@ -45,31 +46,41 @@ const TodosPage = async (props: Props) => {
           <TypographyH1 className=" text-center ">No Todos Found</TypographyH1>
         </div>
       )}
-      <div className=" grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 md:gap-6 lg:grid-cols-4 lg:gap-8 py-12 ">
-        {data?.map((todo) => {
-          return (
-            <>
-              <NextLink
-                href={`/todos/${todo.id}`}
-                key={todo.id}
-                className="rounded-xl border-2 hover:border-2 hover:border-primary hover:rounded-xl"
-              >
-                <div className=" px-4 py-2 rounded-xl ">
-                  <TypographyH3 className=" capitalize line-clamp-1">
-                    {todo.title}
-                  </TypographyH3>
-                  <TypographyMuted>
-                    Completed : &nbsp;
-                    <span className=" text-primary">
-                      {JSON.stringify(todo.completed)}
-                    </span>
-                  </TypographyMuted>
-                </div>
-              </NextLink>
-            </>
-          );
-        })}
-      </div>
+      <ScrollArea className="h-[600px]  rounded-md mt-10  p-4">
+        <div className=" grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 md:gap-6 lg:grid-cols-4 lg:gap-8 py-12 ">
+          {data?.map((todo) => {
+            return (
+              <>
+                <NextLink
+                  href={`/todos/${todo.id}`}
+                  key={todo.id}
+                  className="rounded-xl border-2 hover:border-2 hover:border-primary hover:rounded-xl"
+                >
+                  <div className=" px-4 py-2 rounded-xl ">
+                    <TypographyH3 className=" capitalize line-clamp-1">
+                      {todo.title}
+                    </TypographyH3>
+                    <div className=" flex justify-between">
+                      <TypographyMuted>
+                        Completed : &nbsp;
+                        <span className=" text-primary">
+                          {JSON.stringify(todo.completed)}
+                        </span>
+                      </TypographyMuted>
+                      <TypographyMuted>
+                        Created At : &nbsp;
+                        <span className=" text-primary">
+                          {new Date(todo.createdAt).toLocaleDateString()}
+                        </span>
+                      </TypographyMuted>
+                    </div>
+                  </div>
+                </NextLink>
+              </>
+            );
+          })}
+        </div>
+      </ScrollArea>
     </>
   );
 };
