@@ -20,6 +20,8 @@ export const metadata: Metadata = {
   title: "All Todos",
   openGraph: {
     url: "/todos",
+    title: "All Todos",
+    description: "All toddos listed in this page",
   },
 };
 

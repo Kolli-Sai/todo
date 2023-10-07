@@ -50,5 +50,8 @@ export const metadata: Metadata = {
   title: "Sign in",
   openGraph: {
     url: "/auth/signin",
+    title: "Sign in",
+    description: "Sign in to your account",
+    
   }
 }
