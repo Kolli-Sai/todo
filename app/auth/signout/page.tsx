@@ -15,6 +15,8 @@ export const metadata: Metadata = {
   title: "Sign Out",
   openGraph: {
     url: "/auth/signout",
+    title: "Sign Out",
+    description: "Sign out of your account",
   },
 };
 
